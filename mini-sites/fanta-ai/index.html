@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prezzo Giusto — Assistente Asta Fantacalcio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Collegamento al file CSS esterno -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="toast-container"></div>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="mark">PREZZO GIUSTO</span>
+    </div>
+    <div class="brand" style="border:none;padding:0;margin-top:-14px;">
+      <span class="sub">ASSISTENTE ASTA · CLASSIC 26/27</span>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-stats" id="sideStats"></div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <button class="reset-link" onclick="exportBackup()">Esporta backup (JSON)</button>
+      <label class="reset-link" style="cursor:pointer;">Importa backup
+        <input type="file" id="importBackupInput" accept="application/json" style="display:none;">
+      </label>
+      <button class="reset-link" onclick="emptyAllTeams()" style="color: var(--gold);">Svuota tutte le squadre</button>
+      <button class="reset-link" onclick="resetAll()">Azzera lega e ricomincia</button>
+    </div>
+  </aside>
+  <main class="content" id="content"></main>
+</div>
+
+<!-- Collegamento al file JavaScript esterno -->
+<script src="app.js"></script>
+</body>
+</html>

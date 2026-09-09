@@ -1,12 +1,12 @@
 // Bottone "sorprendimi": porta a caso su uno dei mini-siti
-var projectLinks = ['./mini-sites/webgameshub/', './mini-sites/mangio-tutto/', './mini-sites/strumenti/', './mini-sites/appunti/'];
-document.getElementById('surprise-btn').addEventListener('click', function(){
+var projectLinks = ['./mini-sites/webgameshub/', './mini-sites/mangio-tutto/', './mini-sites/fanta-ai/'];
+document.getElementById('surprise-btn').addEventListener('click', function () {
   var pick = projectLinks[Math.floor(Math.random() * projectLinks.length)];
   window.location.href = pick;
 });
 
 // ---------- Scena three.js di sfondo ----------
-(function(){
+(function () {
   var canvas = document.getElementById('hero-canvas');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -29,7 +29,7 @@ document.getElementById('surprise-btn').addEventListener('click', function(){
 
   var shapes = [];
   var count = geometries.length;
-  for (var i = 0; i < count; i++){
+  for (var i = 0; i < count; i++) {
     var color = palette[i % palette.length];
     var geo = geometries[i];
 
@@ -60,7 +60,7 @@ document.getElementById('surprise-btn').addEventListener('click', function(){
 
   var starCount = 220;
   var starPositions = new Float32Array(starCount * 3);
-  for (var s = 0; s < starCount; s++){
+  for (var s = 0; s < starCount; s++) {
     starPositions[s * 3] = (Math.random() - 0.5) * 60;
     starPositions[s * 3 + 1] = (Math.random() - 0.5) * 40;
     starPositions[s * 3 + 2] = -20 - Math.random() * 20;
@@ -72,14 +72,14 @@ document.getElementById('surprise-btn').addEventListener('click', function(){
 
   var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
 
-  if (!reduceMotion){
-    window.addEventListener('mousemove', function(e){
+  if (!reduceMotion) {
+    window.addEventListener('mousemove', function (e) {
       mouseX = (e.clientX / window.innerWidth - 0.5);
       mouseY = (e.clientY / window.innerHeight - 0.5);
     });
   }
 
-  window.addEventListener('resize', function(){
+  window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -87,22 +87,22 @@ document.getElementById('surprise-btn').addEventListener('click', function(){
 
   var clock = new THREE.Clock();
   var isVisible = true;
-  document.addEventListener('visibilitychange', function(){
+  document.addEventListener('visibilitychange', function () {
     isVisible = document.visibilityState === 'visible';
   });
 
-  function render(){
-    if (isVisible){
+  function render() {
+    if (isVisible) {
       var t = clock.getElapsedTime();
 
-      if (!reduceMotion){
+      if (!reduceMotion) {
         targetX += (mouseX - targetX) * 0.03;
         targetY += (mouseY - targetY) * 0.03;
         camera.position.x = targetX * 4;
         camera.position.y = -targetY * 3;
         camera.lookAt(0, 0, -8);
 
-        shapes.forEach(function(group){
+        shapes.forEach(function (group) {
           group.rotation.x += group.userData.rotSpeed * 0.01;
           group.rotation.y += group.userData.rotSpeed * 0.015;
           group.position.y = group.userData.baseY + Math.sin(t * group.userData.speed + group.userData.floatOffset) * 1.2;

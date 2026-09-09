@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangio Tutto?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <a href="../../" class="back-link"><i class="fas fa-arrow-left"></i> fabio.fun</a>
+        <h1 class="brand">Mangio Tutto?</h1>
+        <button id="edit-toggle" class="ghost-btn" type="button">Modifica risposte</button>
+    </header>
+
+    <main class="wrap">
+
+        <!-- QUIZ: una carta alla volta -->
+        <section id="view-quiz" class="view">
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <p class="progress-label" id="progress-label">0 / 0</p>
+
+            <div class="card-stage">
+                <button id="undo-btn" class="icon-btn" title="Torna indietro"><i class="fas fa-rotate-left"></i></button>
+                <div class="food-card" id="food-card">
+                    <span class="food-card-category" id="card-category">Categoria</span>
+                    <h2 class="food-card-name" id="card-name">Nome alimento</h2>
+                </div>
+            </div>
+
+            <div class="choice-row">
+                <button class="choice-btn choice-dislike" data-choice="dislike">
+                    <i class="fas fa-xmark"></i><span>Non mangio</span>
+                </button>
+                <button class="choice-btn choice-neutral" data-choice="neutral">
+                    <i class="fas fa-meh"></i><span>Mangio</span>
+                </button>
+                <button class="choice-btn choice-like" data-choice="like">
+                    <i class="fas fa-heart"></i><span>Mi piace</span>
+                </button>
+            </div>
+
+            <div class="quiz-actions">
+                <button id="reset-quiz-btn" class="text-btn reset-btn"><i class="fas fa-undo"></i> Ricomincia da zero</button>
+            </div>
+        </section>
+
+        <!-- RISULTATI -->
+        <section id="view-results" class="view">
+            <h2 class="section-title">I tuoi risultati</h2>
+            <div class="stats-row">
+                <div class="stat-chip stat-like"><i class="fas fa-heart"></i><span id="r-like">0</span><small>Mi piacciono</small></div>
+                <div class="stat-chip stat-neutral"><i class="fas fa-meh"></i><span id="r-neutral">0</span><small>Mangio</small></div>
+                <div class="stat-chip stat-dislike"><i class="fas fa-xmark"></i><span id="r-dislike">0</span><small>Non mangio</small></div>
+                <div class="stat-chip stat-unset"><i class="fas fa-question"></i><span id="r-unset">0</span><small>Da fare</small></div>
+            </div>
+            <div class="results-actions">
+                <button id="challenge-btn" class="primary-btn"><i class="fas fa-share-alt"></i> Sfida qualcuno</button>
+                <button id="continue-btn" class="ghost-btn">Continua il quiz</button>
+                <button id="reset-btn" class="text-btn reset-btn"><i class="fas fa-undo"></i> Ricomincia da zero</button>
+            </div>
+        </section>
+
+        <!-- CONFRONTO -->
+        <section id="view-compare" class="view">
+            <h2 class="section-title">Tu vs <span id="rival-name">un amico</span></h2>
+
+            <div class="vs-row">
+                <div class="vs-side">
+                    <span class="vs-label">Tu</span>
+                    <span class="vs-score" id="score-you">0</span>
+                </div>
+                <span class="vs-sep">vs</span>
+                <div class="vs-side">
+                    <span class="vs-label" id="rival-name-2">Lui/lei</span>
+                    <span class="vs-score" id="score-rival">0</span>
+                </div>
+            </div>
+            <p class="vs-verdict" id="vs-verdict"></p>
+
+            <div class="vs-details">
+                <div class="vs-block">
+                    <h3>Piacciono a entrambi</h3>
+                    <p class="vs-list" id="common-likes">—</p>
+                </div>
+                <div class="vs-block">
+                    <h3>Disaccordo totale</h3>
+                    <p class="vs-list" id="conflicts">—</p>
+                </div>
+            </div>
+
+            <div class="results-actions">
+                <button id="do-quiz-btn" class="primary-btn">Fai il tuo quiz</button>
+                <button id="challenge-back-btn" class="ghost-btn"><i class="fas fa-share-alt"></i> Sfida a tua volta</button>
+            </div>
+        </section>
+
+        <!-- MODIFICA / ELENCO COMPLETO -->
+        <section id="view-edit" class="view">
+            <h2 class="section-title">Modifica le tue risposte</h2>
+            <div class="controls">
+                <div class="filter-group">
+                    <label for="category-filter">Categoria</label>
+                    <select id="category-filter"><option value="all">Tutte</option></select>
+                </div>
+                <div class="filter-group">
+                    <label for="preference-filter">Preferenza</label>
+                    <select id="preference-filter">
+                        <option value="all">Tutte</option>
+                        <option value="unset">Da classificare</option>
+                        <option value="like">Mi piace</option>
+                        <option value="neutral">Mangio</option>
+                        <option value="dislike">Non mangio</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="search">Cerca</label>
+                    <input type="text" id="search" placeholder="Nome alimento...">
+                </div>
+            </div>
+            <div class="food-list" id="food-list"></div>
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

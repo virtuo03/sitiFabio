@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="icons/logo.png">
+    <title>WebGamesHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">WebGames<span>Hub</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#favorites" class="nav-icon"><img src="icons/star.png" alt="Favorites"></a></li>
+                    <li><a href="#geography" class="nav-icon active"><img src="icons/geography.png" alt="Geography"></a>
+                    </li>
+                    <li><a href="#general" class="nav-icon"><img src="icons/general.png" alt="General"></a></li>
+                    <li><a href="#pokemon" class="nav-icon"><img src="icons/pokemon.png" alt="Pokémon"></a></li>
+                    <li><a href="#math" class="nav-icon"><img src="icons/math.png" alt="Math"></a></li>
+                    <li><a href="#streamer" class="nav-icon"><img src="icons/twitch.png" alt="Streamer Mode"></a></li>
+                    <li><a href="#random" class="nav-icon"><img src="icons/random.png" alt="Casuale"></a></li>
+
+                </ul>
+            </nav>
+            <!--<div class="search-container">
+                <input type="text" placeholder="Search games..." id="search-input">
+                <button id="search-btn"></button>
+            </div>-->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="theme-icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path class="moon" fill="currentColor"
+                        d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z" />
+                    <path class="sun" fill="currentColor"
+                        d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>The site you need during a tech pause</h2>
+                <p>Curated collection of themed browser games</p>
+            </div>
+        </section>
+
+        <section id="favorites" class="game-section">
+            <div class="container">
+                <h2 class="section-title">Your Favorites</h2>
+                <p class="section-description">Your starred games appear here</p>
+                <div class="games-grid" id="favorites-grid">
+                    <!-- Favorite games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="geography" class="game-section">
+            <div class="container">
+                <h2 class="section-title">Geography Games</h2>
+                <p class="section-description">Test your knowledge of the world with these geography-themed games</p>
+                <div class="games-grid" id="geography-grid">
+                    <!-- Geography games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="general" class="game-section">
+            <div class="container">
+                <h2 class="section-title">General Games</h2>
+                <p class="section-description">Popular word and guessing games</p>
+                <div class="games-grid" id="general-grid">
+                    <!-- General games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="pokemon" class="game-section">
+            <div class="container">
+                <h2 class="section-title">Pokémon Games</h2>
+                <p class="section-description">For all Pokémon fans - test your knowledge of the franchise</p>
+                <div class="games-grid" id="pokemon-grid">
+                    <!-- Pokémon games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        <section id="math" class="game-section">
+            <div class="container">
+                <h2 class="section-title">Math Games</h2>
+                <p class="section-description">Challenge your numerical skills with these math-based games</p>
+                <div class="games-grid" id="math-grid">
+                    <!-- Math games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        <section id="streamer" class="game-section">
+            <div class="container">
+                <h2 class="section-title">"Streamer Games"</h2>
+                <p class="section-description">If you want to play with your chat</p>
+                <div class="games-grid" id="streamer-grid">
+                    <!-- Streamer games will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        <section id="random" class="game-section">
+            <div class="container">
+                <h2 class="section-title">Random Game</h2>
+                <p class="section-description">Click to play a random game from all categories</p>
+                <div class="random-game-container">
+                    <div class="random-game-card" id="random-game-card">
+                        <div class="dice-animation-container">
+                            <img src="icons/random.png" alt="Static Dice" class="dice-static">
+                            <img src="icons/giphy (2).gif" alt="Dice Rolling" class="dice-gif">
+                        </div>
+                        <div class="random-game-content">
+                            <h3>Random Game</h3>
+                            <p>Click to play a random game from all categories</p>
+                            <button class="random-game-btn">Play Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About GameHub</h3>
+                    <p>GameHub is a curated collection of the best themed browser games. No downloads required!</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#geography">Geography Games</a></li>
+                        <li><a href="#general">General Games</a></li>
+                        <li><a href="#pokemon">Pokémon Games</a></li>
+                        <li><a href="#math">Math</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Suggest a Game</h3>
+                    <p>dm me on discord</p>
+                </div>
+                <!--In the footer section, add this to one of the columns or create a new one
+                <div class="footer-section donations">
+                    <h3>Support Me</h3>
+                    <p>Buy me a slice of pizza. I freaking love pizza.</p>
+                    <form action="https://www.paypal.com/donate" method="post" target="_blank"
+                        style="margin-top: 10px;">
+                        <input type="hidden" name="business" value="fabiorovituso@gmail.com" />
+                        <input type="hidden" name="currency_code" value="EUR" />
+                        <input type="hidden" name="amount" value="1.00" />
+                        <button type="submit" class="donate-button">Donate 1€ (not needed)</button>
+                    </form>
+                </div>-->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> Made by Virtuofabio</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

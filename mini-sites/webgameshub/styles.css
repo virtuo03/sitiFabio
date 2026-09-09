@@ -1,0 +1,686 @@
+/* Global Styles */
+:root {
+    --primary-color: #660474;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --accent-color: #e74c3c;
+    --geography-color: #1abc9c;
+    --general-color: #232ec4;
+    --pokemon-color: #f39c12;
+    --text-color: #333;
+    --background-color: #fff;
+    --card-bg: #fff;
+    --header-bg: #fff;
+    --footer-bg: #2c3e50;
+    --section-odd-bg: #fff;
+    --section-even-bg: #f8f9fa;
+    --search-bg: #fff;
+    --search-border: #ddd;
+    --nav-hover: #660474;
+    --nav-text: #2c3e50;
+    --math-color: #e74c3c;
+    --favorites-color: #ffd700;
+    --streamer-color: #9147ff;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9c27b0;
+    --secondary-color: #4caf50;
+    --dark-color: #121212;
+    --light-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --header-bg: #1e1e1e;
+    --footer-bg: #121212;
+    --section-odd-bg: #1e1e1e;
+    --section-even-bg: #121212;
+    --search-bg: #2d2d2d;
+    --search-border: #444;
+    --nav-hover: #9c27b0;
+    --nav-text: #e0e0e0;
+    --favorites-color: #ffd700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Add to your CSS */
+.game-card-star {
+    position: absolute;
+    bottom: 150px;
+    right: 10px;
+    color: gold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.2s;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.game-card-star:hover {
+    transform: scale(1.2);
+}
+
+.game-card-star.favorited {
+    color: gold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+
+}
+
+.game-card-wrapper {
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--nav-hover);
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.nav-icon:hover img,
+.nav-icon.active img {
+    transform: scale(1.1);
+}
+
+.nav-icon.active {
+    background-color: var(--nav-hover);
+}
+
+/* Tooltip styles for accessibility */
+.nav-icon {
+    position: relative;
+}
+
+.nav-icon:hover::after {
+    
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.search-container input {
+    padding: 8px 15px;
+    border: 1px solid var(--search-border);
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s;
+    background-color: var(--search-bg);
+    color: var(--text-color);
+}
+
+.search-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(102, 4, 116, 0.3);
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    margin-left: -35px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.search-container button:hover {
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.theme-icon .sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-icon .moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-icon .sun {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Game Sections */
+.game-section {
+    padding: 60px 0;
+    transition: background-color 0.3s ease;
+}
+
+.game-section:nth-child(odd) {
+    background-color: var(--section-odd-bg);
+}
+
+.game-section:nth-child(even) {
+    background-color: var(--section-even-bg);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 10px auto 0;
+}
+
+#geography .section-title::after {
+    background-color: var(--geography-color);
+}
+
+#general .section-title::after {
+    background-color: var(--general-color);
+}
+
+#pokemon .section-title::after {
+    background-color: var(--pokemon-color);
+}
+
+#favorites .section-title::after {
+    background-color: var(--favorites-color);
+}
+
+#streamer .section-title::after {
+    background-color: var(--streamer-color);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    border-top: 4px solid;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.game-card[data-category="geography"] {
+    border-color: var(--geography-color);
+}
+
+.game-card[data-category="general"] {
+    border-color: var(--general-color);
+}
+
+.game-card[data-category="pokemon"] {
+    border-color: var(--pokemon-color);
+}
+
+.game-card[data-category="streamer"] {
+    border-color: var(--streamer-color);
+}
+
+
+.game-card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.game-card-content {
+    padding: 20px;
+}
+
+.game-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.game-card-description {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 60px;
+}
+
+.game-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-card-category {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.game-card[data-category="geography"] .game-card-category {
+    background-color: var(--geography-color);
+}
+
+.game-card[data-category="general"] .game-card-category {
+    background-color: var(--general-color);
+}
+
+.game-card[data-category="pokemon"] .game-card-category {
+    background-color: var(--pokemon-color);
+}
+
+.game-card[data-category="math"] {
+    border-color: var(--math-color);
+}
+
+.game-card[data-category="math"] .game-card-category {
+    background-color: var(--math-color);
+}
+
+#math .section-title::after {
+    background-color: var(--math-color);
+}
+
+.game-card-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.game-card-btn:hover {
+    background-color: var(--dark-color);
+}
+
+/* Random Game Section Styles */
+/* Random Game Section - GIF Version */
+.random-game-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.random-game-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.random-game-card:hover {
+    transform: translateY(-5px);
+}
+
+.dice-animation-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.dice-static,
+.dice-gif {
+    width: 80px;
+    height: 80px;
+    transition: opacity 0.3s ease;
+}
+
+.dice-gif {
+    position: absolute;
+    opacity: 0;
+}
+
+.random-game-card:hover .dice-static {
+    opacity: 0;
+}
+
+.random-game-card:hover .dice-gif {
+    opacity: 1;
+}
+
+.random-game-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.random-game-content h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+}
+
+.random-game-content p {
+    margin: 0 0 15px;
+    color: var(--text-secondary);
+}
+
+.random-game-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.random-game-btn:hover {
+    background-color: var(--accent-hover);
+}
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: 60px 0 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-section.about p {
+    margin-bottom: 20px;
+}
+
+.footer-section.links ul {
+    list-style: none;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.links ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section.links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-section.contact p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+}
+.donate-button {
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.donate-button:hover {
+    background-color: #005ea6;
+    transform: translateY(-2px);
+}
+
+/* Adjust the footer content grid to accommodate the new section */
+.footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .search-container {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}

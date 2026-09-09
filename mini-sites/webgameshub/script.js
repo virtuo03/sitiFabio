@@ -157,6 +157,22 @@ const games = {
             url: "https://cluesbysam.com/"
         },
         {
+            id: 44,
+            title: "krillion",
+            description: "Seven questions a day, same for everyone. The goal is to dive as deep as possible, and rare answers sink you deeper. Obvious ones barely count. One in a krillion.",
+            image: "../../imagesGames/krillion.webp",
+            category: "general",
+            url: "https://krillion.io/"
+        },
+        {
+            id: 45,
+            title: "Thingdle",
+            description: "Guess the every-day object with a riddle to start with. You get 2 more hints along the way. Each guess reveals a wordle-like grid of object attributes. You have 6 guesses.",
+            image: "../../imagesGames/thingdle.webp",
+            category: "general",
+            url: "https://thingdle.app/en/thingdle"
+        },
+        {
             id: 36,
             title: "CIRCLE",
             description: "CIRCLE",
@@ -208,7 +224,7 @@ const games = {
         },
         {
             id: 41,
-            title : "dailytens",
+            title: "dailytens",
             description: "Guess the top ten most popular for the given category for the day.",
             image: "../../imagesGames/dailytens.jpg",
             category: "general",
@@ -239,7 +255,7 @@ const games = {
             url: "https://quordly.com/"
         },
         {
-            id : 38,
+            id: 38,
             title: "Syllacrostic",
             description: "daily word puzzle that challenges your vocabulary and critical thinking skills",
             image: "../../imagesGames/syllacrostic.png",
@@ -247,7 +263,7 @@ const games = {
             url: "https://syllacrostic.com/daily"
         },
         {
-            id : 39,
+            id: 39,
             title: "Linkedin or Interpol",
             description: "Guess if the profile is from Linkedin or Interpol",
             image: "../../imagesGames/linkedin.webp",

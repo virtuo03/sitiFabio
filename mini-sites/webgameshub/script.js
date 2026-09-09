@@ -146,13 +146,13 @@ const games = {
             description: "Test your spatial awareness and estimation skills by sizing up different objects.",
             image: "../../imagesGames/sizeitup.png",
             category: "general",
-            url: "https://sizeitup.online/"
+            url: "https://sizeitup.games/"
         },
         {
             id: 43,
             title: "Clues by Sam",
-            description: "Solve engaging daily puzzles, word clues, and riddles.",
-            image: "../../imagesGames/cluesbysam.png",
+            description: "Your goal is to figure out who is criminal and who is innocent based on the clues provided.",
+            image: "../../imagesGames/cluesbysam.webp",
             category: "general",
             url: "https://cluesbysam.com/"
         },
